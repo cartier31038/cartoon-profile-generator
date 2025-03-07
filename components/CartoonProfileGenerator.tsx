@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import ImageUploader from './ImageUploader'
 import ResultGrid from './ResultGrid'
-import { Upload, ImageIcon } from 'lucide-react'
 
 export default function CartoonProfileGenerator() {
   const [prompt, setPrompt] = useState('')
@@ -31,12 +30,12 @@ export default function CartoonProfileGenerator() {
       className="max-w-4xl mx-auto space-y-8"
     >
       <Card className="p-6 backdrop-blur-lg bg-white/10 shadow-xl rounded-futuristic border border-white/20">
-        <h1 className="text-3xl font-bold text-center mb-6 text-white futuristic-text">Cartoon Profile Generator</h1>
+        <h1 className="text-3xl font-bold text-center mb-6 text-gray-600 futuristic-text">Cartoon Profile Generator</h1>
         <Input
-          placeholder="Enter your style preferences (e.g., anime, pixar, disney)"
+          placeholder="Enter your style (e.g. cute, cool)"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          className="mb-4 futuristic-text rounded-futuristic-sm"
+          className="mb-4 text-sm futuristic-text rounded-futuristic-sm text-gray-700"
         />
         <ImageUploader onImageUpload={setUploadedImage} />
         {uploadedImage && (

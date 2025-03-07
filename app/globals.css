@@ -56,6 +56,19 @@ body {
   background-repeat: no-repeat;
 }
 
+.background {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.6); /* Darkened overlay */
+  }
+}
+
 .glassmorphism {
   @apply backdrop-blur-lg bg-white/10 shadow-xl rounded-xl border border-white/20;
 }

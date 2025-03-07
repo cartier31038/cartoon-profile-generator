@@ -43,8 +43,8 @@ export default function ImageUploader({ onImageUpload }: ImageUploaderProps) {
       whileTap={{ scale: 0.98 }}
     >
       <input {...getInputProps()} />
-      <Upload className="mx-auto h-12 w-12 text-gray-400" />
-      <p className="mt-2 text-sm text-gray-500 futuristic-text">Drag and drop an image here, or click to select</p>
+      <Upload className="mx-auto h-12 w-12 text-gray-700" />
+      <p className="mt-2 text-sm text-gray-700 futuristic-text">Drag and drop a your reference image here, or click to select</p>
       <Button onClick={open} variant="outline" className="mt-4 futuristic-text rounded-futuristic-sm">
         Browse Gallery
       </Button>
