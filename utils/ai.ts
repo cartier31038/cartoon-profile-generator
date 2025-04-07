@@ -99,7 +99,7 @@ function extractCleanBase64(uri: string) {
     }
 }
 
-export async function generateImage(
+export async function generateTxt2Image(
     prompt: string,
     options?: Partial<GenerateImageOptions>,
 ): Promise<GenerateImageResponse> {
@@ -117,10 +117,10 @@ export async function generateImage(
         prompt,
         negative_prompt:
             'lowres, blurry, worst quality, low quality, normal quality, many people, bad anatomy, bad hands, missing fingers, error, text, username, extra digit, fewer digits, signature, watermark, cropped, jpeg artifacts, detailed background, glitch rim',
-        batch_size: 1,
+        batch_size: 2,
         n_iter: 1,
         steps: 30,
-        cfg_scale: 7,
+        cfg_scale: 15,
         width: 512,
         height: 512,
         restore_faces: false,
@@ -165,9 +165,9 @@ export async function generateImg2Img(
         prompt,
         negative_prompt:
             'lowres, blurry, worst quality, low quality, normal quality, many people, bad anatomy, bad hands, missing fingers, error, text, username, extra digit, fewer digits, signature, watermark, cropped, jpeg artifacts, detailed background, glitch rim',
-        batch_size: 1,
+        batch_size: 2,
         n_iter: 1,
-        steps: 80,
+        steps: 30,
         cfg_scale: 15,
         width: 512,
         height: 768,

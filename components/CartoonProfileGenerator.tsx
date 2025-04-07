@@ -56,7 +56,7 @@ export default function CartoonProfileGenerator() {
                 />
                 <ImageUploader onImageUpload={setUploadedImage} />
                 {uploadedImage && (
-                    <Card className="mt-4 p-4 w-48 h-48 mx-auto">
+                    <Card className="mt-3 p-3 w-48 h-48 mx-auto">
                         <img
                             src={uploadedImage || '/placeholder.svg'}
                             alt="Uploaded"
