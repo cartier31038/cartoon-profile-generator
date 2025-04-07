@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
-import { ImageIcon, Download } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Download, ImageIcon } from 'lucide-react'
+import Image from 'next/image'
 
 interface ResultGridProps {
     results: string[]

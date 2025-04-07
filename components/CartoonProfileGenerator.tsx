@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { generateCaption, generateImg2Img } from '@/utils/ai'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 import ImageUploader from './ImageUploader'
 import ResultGrid from './ResultGrid'
-import { generateImg2Img, generateCaption } from '@/utils/ai'
 
 export default function CartoonProfileGenerator() {
     const [prompt, setPrompt] = useState('')

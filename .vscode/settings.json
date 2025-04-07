@@ -1,6 +1,13 @@
 {
+    "editor.autoClosingQuotes": "always",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "prettier.semi": false,
@@ -8,10 +15,6 @@
     "prettier.tabWidth": 4,
     "prettier.trailingComma": "all",
     "scss.validate": false,
-    "editor.quickSuggestions": {
-        "strings": true
-    },
-    "editor.autoClosingQuotes": "always",
     "tailwindCSS.experimental.classRegex": [
         "tw`([^`]*)", // tw`...`
         "tw=\"([^\"]*)", // <div tw="..." />

@@ -1,6 +1,5 @@
-import axios from 'axios'
 import { GoogleGenerativeAI, Part } from '@google/generative-ai'
-import { log } from 'console'
+import axios from 'axios'
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY ?? ''
 const SD_API_URL = process.env.SD_API_URL ?? ''
