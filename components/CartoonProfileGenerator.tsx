@@ -20,7 +20,7 @@ export default function CartoonProfileGenerator() {
         setIsLoading(true)
 
         setTimeout(async () => {
-            const caption = await generateCaption('', uploadedImage)
+            const caption = await generateCaption(prompt, uploadedImage)
             setDebug(caption)
 
             // await generateImg2Img(caption, uploadedImage)
@@ -58,7 +58,10 @@ export default function CartoonProfileGenerator() {
                 {uploadedImage && (
                     <Card className="mt-3 p-3 w-48 h-48 mx-auto">
                         <img
-                            src={uploadedImage || '/placeholder.svg'}
+                            src={
+                                `data:image/png;base64,${uploadedImage}` ||
+                                '/placeholder.svg'
+                            }
                             alt="Uploaded"
                             className="w-full h-full object-contain rounded"
                         />

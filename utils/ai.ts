@@ -38,7 +38,7 @@ interface GenerateImageResponse {
 
 export async function generateCaption(
     userPrompt: string,
-    image: string | Uint8Array,
+    base64Image: string,
 ): Promise<string> {
     try {
         // Create a model instance
@@ -54,21 +54,13 @@ export async function generateCaption(
 
         // Prepare the content parts
         const parts: Part[] = [{ text: userPrompt }, { text: systemPrompt }]
+        parts.push({
+            inlineData: {
+                data: base64Image,
+                mimeType: 'image/jpeg',
+            },
+        })
 
-        if (typeof image === 'string') {
-            console.log('promptWithLLM.image.string')
-            parts.push({
-                inlineData: extractCleanBase64(image),
-            })
-        } else {
-            console.log('promptWithLLM.image.binary')
-            parts.push({
-                inlineData: {
-                    data: Buffer.from(image).toString('base64'),
-                    mimeType: 'image/jpeg',
-                },
-            })
-        }
         const contents = [{ role: 'user', parts }]
         console.log('promptWithLLM.contents', contents)
 
@@ -85,17 +77,6 @@ ${responseText}
     } catch (error) {
         console.error('promptWithLLM.error:', error)
         throw error
-    }
-}
-
-function extractCleanBase64(uri: string) {
-    const matches = uri.match(/^data:.+\/(.+);base64,(.*)$/)
-    if (!matches || matches.length < 3) {
-        throw new Error('Invalid data URI format')
-    }
-    return {
-        mimeType: `image/${matches[1]}`,
-        data: matches[2],
     }
 }
 
