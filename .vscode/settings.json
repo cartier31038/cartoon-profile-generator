@@ -26,6 +26,9 @@
         "typescript": "javascript",
         "typescriptreact": "javascript"
     },
+    "workbench.editorAssociations": {
+        "*.svg": "default"
+    }
     "[yaml]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.tabSize": 2

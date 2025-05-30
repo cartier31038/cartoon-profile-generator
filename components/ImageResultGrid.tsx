@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 import { Download, ImageIcon } from 'lucide-react'
 import Image from 'next/image'
 
-interface ResultGridProps {
+interface ImageResultGridProps {
     results: string[]
 }
 
-export default function ResultGrid({ results }: ResultGridProps) {
+export default function ImageResultGrid({ results }: ImageResultGridProps) {
     return (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {results.map((result, index) => (
@@ -23,7 +23,7 @@ export default function ResultGrid({ results }: ResultGridProps) {
                         <Image
                             src={
                                 `data:image/png;base64,${result}` ||
-                                '/placeholder.svg'
+                                '/images/profile-placeholder.svg'
                             }
                             alt={`Result ${index + 1}`}
                             className="w-full h-full object-cover"
