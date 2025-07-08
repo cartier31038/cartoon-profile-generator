@@ -23,15 +23,8 @@ export default function CartoonProfileGenerator() {
             const caption = await generateCaption(prompt, uploadedImage)
             setDebug(caption)
 
-            // await generateImg2Img(caption, uploadedImage)
-            // setResults([
-            //     '/images/profile-placeholder.svg',
-            //     '/images/profile-placeholder.svg',
-            //     '/images/profile-placeholder.svg',
-            //     '/images/profile-placeholder.svg',
-            // ])
-
             const result = await generateImg2Img(caption, uploadedImage)
+            // const result = await generateTxt2Image(caption)
             setResults([...results, ...result.images])
             setIsLoading(false)
         }, 250)

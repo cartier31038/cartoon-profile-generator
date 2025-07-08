@@ -3,6 +3,8 @@ import axios from 'axios'
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY ?? ''
 const SD_API_URL = process.env.SD_API_URL ?? ''
+// const SD_MODEL_CHECKPOINT = 'waifusNDungeonsV20ANIME_waifusNDungeonsV20'
+const SD_MODEL_CHECKPOINT = 'anyloracleanlinearmix_v10'
 
 // Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY)
@@ -25,6 +27,7 @@ interface GenerateImageOptions {
     save_images?: boolean
     send_images?: boolean
     denoising_strength?: number
+    override_settings?: unknown
 }
 
 interface Img2ImgOptions extends GenerateImageOptions {
@@ -113,6 +116,10 @@ export async function generateTxt2Image(
         save_images: false,
         send_images: true,
         denoising_strength: 0.75,
+        override_settings: {
+            sd_model_checkpoint: SD_MODEL_CHECKPOINT,
+            CLIP_stop_at_last_layers: 2,
+        },
     }
 
     const data = { ...defaultOptions, ...options }
@@ -161,6 +168,10 @@ export async function generateImg2Img(
         save_images: false,
         send_images: true,
         denoising_strength: 0.8,
+        override_settings: {
+            sd_model_checkpoint: SD_MODEL_CHECKPOINT,
+            CLIP_stop_at_last_layers: 2,
+        },
         include_init_images: true,
         init_images: [encodedImage],
     }
